@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Splenor | Home{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/bootsnav.css' %}">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=El Messiri"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"/>
+    <link rel='stylesheet' type='text/css' href="https://fonts.googleapis.com/css?family=Satisfy">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{%  static 'home/images/logo-final.png' %}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+    <script src="{% static 'home/js/bootsnav.js' %}"></script>
+
+    <style>
+        #map {
+            height: 735px;
+            width: 100%;
+        }
+
+        .ourteam .team:hover img{
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ourteam .team_caption{
+            padding: 17px 10px;
+            background: #d8deef;
+            position: relative;
+            text-align: center;
+            text-transform: capitalize;
+            color: #000000;
+        }
+
+        .team_caption:hover{
+            background: #46c5e2;
+            color: #f5f5f5;
+            transition: 0.1s;
+        }
+
+        .hiddenn{
+            display: none;
+        }
+        .shown{
+            display: block;
+        }
+        .swiper-pagination-bullet-active{
+            background-color: #46c5e2;
+        }
+    </style>
+</head>
+<body>
+
+{% block body %}
+    
+    <header class="default">
+        <div class="container-fluid" style="padding: 0;">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                         </button>-->
+                        <a class="navbar-brand" href="{% url 'home:index' %}">
+                            <img class="" src="{% static 'home/images/logosplenor.png' %}" alt="">
+                        </a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                            <span class="icon-bar" style="background: #ffffff;"></span>
+                            <span class="icon-bar" style="background: #ffffff;"></span>
+                            <span class="icon-bar" style="background: #ffffff;"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="topNavBar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="{% block Home %}{% endblock %}">
+                                <a href="/home" class="scroll">HOME</a>
+                            </li>
+                            <li class="{% block product %}{% endblock %}"><a href="/products" class="scroll">PRODUCTS</a></li>
+                            <li><a href="#team" class="scroll">TEAM</a></li>
+                            <li><a href="#about us" class="scroll">ABOUT US</a></li>
+                            <li><a href="#contact us" class="scroll">CONTACT US</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="6"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="7"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="8"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <!--<button class="btn custombutton" type="button" style="height: 47px; width: 240px; margin-top: 328px; margin-left: 30%;">
+                            <a href="#" style="color: #f5f5f5;"></a>GETTING STARTED
+                        </button>-->
+                    </div>
+                    <div class="item">
+                        <!--<button class="btn custombutton" type="button" style="height: 47px; width: 240px; margin-top: 600px; margin-left: 77%;">
+                            <a href="#" style="color: #f5f5f5;"></a>GETTING STARTED
+                        </button>-->
+                    </div>
+                    <div class="item">
+                        <!--<button class="btn custombutton" type="button" style="height: 47px; width: 240px; margin-top: 550px; margin-left: 40%;">
+                            <a href="#" style="color: #f5f5f5;"></a>GETTING STARTED
+                        </button>-->
+                    </div>
+                    <div class="item">
+                    <!--<img src="https://unsplash.it/1400/600?image=622">
+                    </div>
+                    <div class="item">
+                    <img src="https://unsplash.it/1400/600?image=401">-->
+                    </div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
+
+                <!--<button class="btn custombutton" type="button" style="height: 47px; width: 240px;">
+                     <a href="#" style="color: #f5f5f5;"></a>GETTING STARTED
+                </button>-->
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                <!--<script>
+                    $(".carousel").swipe({
+
+                    swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+
+                    if (direction == 'left') $(this).carousel('next');
+                    if (direction == 'right') $(this).carousel('prev');
+
+                    },
+                    allowPageScroll:"vertical"
+
+                    });
+                </script>-->
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('.carousel').carousel({
+                          interval: 4000
+                        })
+                    });
+                </script>
+            </div>
+        </div>
+    </header>
+    <div id="below-main">
+    <section class="about" id="team" style="padding: 7.5rem 0;">
+        <div class="container" style="">
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin-bottom: 35px;">
+                    <h1 style="color: #60667a;">Our Team</h1>
+                </div>
+                <div class="col-md-12">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper" style="padding-bottom: 60px;">
+                        {% for i in team %}
+                            <div class="swiper-slide ourteam">
+                                <div class="team">
+                                    <a href="#" style="text-decoration: none;">
+                                    <img src="{{ i.image.url }}" class="img-responsive">
+                                    <div class="team_caption text-center">
+                                        <h4>{{ i.name }}</h4>
+                                        <p>{{ i.designation }}</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination" style=""></div>
+                    </div>
+                    <script>
+                    var swiper = new Swiper('.swiper-container', {
+                        pagination: '.swiper-pagination',
+                        slidesPerView: 4,
+                        paginationClickable: true,
+                        autoplay:3000,
+                        spaceBetween: 30
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<section class="bg">
+        <div class="container">
+            <div class="row">
+                <div class="bghalf imgone hidden-xs"></div>
+                <div class="col-md-offset-6 col-md-6 col-sm-12">
+                    <div class="bgpadding" style="padding-left: 35px;">
+                        <h1 style="margin-bottom: 25px;">Title of Whatever</h1>
+                        <div class="testimonial">
+                            <span class="dpcontainer">
+                                <img class="img-circle" src="{% static 'home/images/testimonial1.png' %}">
+                            </span>
+                            <div class="sign">
+                                <h6>Name</h6>
+                                <h6>DESIGNATION OR COMPANY NAME</h6>
+                            </div>
+                            <p align="justify" style="margin-top: 25px;">
+                                Quote or Report. Sunspear is the capital of Dorne, southernmost of the Seven Kingdoms, located in the far southeast of the continent on the Summer Sea.
+                                It consists of a strong, fortified castle and a town that sprawls around it. It is a town built largely of mud and straw.
+                                The town's largest structure is Spear Tower, a 150-feet structure with a pinnacle of shining steel.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <section class="bg fulllength2 secpadding2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 custom1 alter1">
+                    <h1>Quality..</h1>
+                    <h2>Value..</h2>
+                    <h3>Convenience..</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about us" style="padding: 10rem 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="color: #60667a;">
+                    <h1>ABOUT US</h1>
+                    <h3 style="margin-top: 25px;">One stop solution for QUALITY garments accessories with VALUE for money in a CONVENIENT way.</h3>
+                    <p align="justify" style="margin-top: 25px;">
+                        SPLENOR is a trims & accessories chain offering a wide and varied selection for all types garments - knit, woven, and sweater.
+                        We consider ourselves as environmental friendly garment accessories provider. Our products are mostly made in China as well as Bangladesh.
+                    </p>
+                    <p align="justify">
+                        We provide complete apparel solutions from underwear to outerwear and fashion accessories.
+                        Our product range is fully compiled with men, women and kids garments and offer the same to our valued customers
+                        all over the world by the personalized service, product quality, competitive price and speed of service.
+                        We specialize in laces, buttons, belts, zippers, badges, stoppers, buckles, toggles, velcro, cord end, drawstring, tapes,
+                        hit transfer sticker, rhinestones, any kind of sequence work, chiffon/georgette fabric, fur fabrics, frill tape, embroidery work and so on.
+                    </p>
+                    <p align="justify">
+                        We are engaged to maintain a consistent high quality standard of business conduct, ethics and social responsibilities.
+                        We take pride in the efficiency of what we do and always try to adopt to the latest and most effective technology available.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg fulllength secpadding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1 col-md-2"></div>
+                <div class="col-sm-10 col-md-8 text-center">
+                    <h2 style="color: #ffffff;">
+                        <i class="fa fa-quote-left"></i>
+                            Style is a simple way of saying complicated things.
+                        <i class="fa fa-quote-right"></i>
+                    </h2>
+                    <p style="margin-top: 25px; color: #42d9e4">- JEAN COCTEU -</p>
+                </div>
+                <div class="col-sm-1 col-md-2"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="contact us">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4" style="padding: 10rem 0; padding-right: 40px;">
+                    <div style="color: #60667a; padding-left: 20px;">
+                        <h1>Contact Us</h1>
+                        <div class="contact" style="margin-top: 20px;">
+                            <i class="fa fa-phone" style="font: normal normal normal 18px/1 FontAwesome;"></i>
+                            <span style="padding-left: 18px; font-family: El-Messiri; font-size: 18px;">(+88) 01713030398</span>
+                        </div>
+                        <div class="contact" style="margin-top: 10px;">
+                            <i class="fa fa-envelope-o" style="font: normal normal normal 18px/1 FontAwesome;"></i>
+                            <span style="padding-left: 18px; font-family: El-Messiri; font-size: 18px;">support@splenor.com</span>
+                        </div>
+                        <div class="contact" style="margin-top: 10px;">
+                            <i class="fa fa-map-marker" style="font: normal normal normal 18px/1 FontAwesome;"></i>
+                            <span style="padding-left: 18px; font-family: El-Messiri; font-size: 18px;">House No. 365/1, Road No. 6(West), Baridhara DOHS, Dhaka-1206, Bangladesh</span>
+                        </div>
+                        <div class="contact" style="margin-top: 10px;">
+                            <a href="https://www.facebook.com/Splenor/"><i class="fa fa-facebook" style="font: normal normal normal 18px/1 FontAwesome;"></i>
+                            <span style="padding-left: 15px; font-family: El-Messiri; font-size: 18px;">www.facebook.com/Splenor</span></a>
+                        </div>
+                    </div>
+                    <div style="padding-left: 20px;">
+                        <div id="onsubmit" class="hiddenn" style="">
+                            <div class="alert-success text-center">
+                                Thank You for contacting
+                            </div>
+                        </div>
+                        <form onsubmit="return true" class="contactus" role="form" action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-sm-6 form-group">
+                                <input type="text" class="form-control" placeholder="Your Name" name="name" id="name" required="">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <input type="email" class="form-control" placeholder="Email Address" name="email" id="email" required="">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <input type="tel" class="form-control" placeholder="Phone Number" name="phone" id="phone" required="">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <input type="text" class="form-control" placeholder="Subject" name="subject" id="subject">
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <textarea class="form-control" style="height: 130px;" placeholder="Your Message" name="message" id="message" required=""></textarea>
+                            </div>
+                            <div class="form-group" style="margin-top: 20px;">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn custombutton" id="submit_btn" onclick="showAlert();">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-top: 10px; padding: 0;">
+                    <div id="map"></div>
+                    <script>
+                        function initMap() {
+                            var uluru = {lat: 23.812621, lng: 90.412085};
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 15,
+                                center: uluru
+                            });
+                            var marker = new google.maps.Marker({
+                                position: uluru,
+                                map: map
+                            });
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-default" style="padding-left: 20%; background: #d8deef; height: 50px;">
+        <p style="padding-top: 15px;">Copyright &copy; 2017 | Privacy Policy</p>
+    </footer>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U&callback=initMap">
+    </script>
+    </div>
+    <script>
+        var mainbottom = $('#carousel-example-generic').offset().top + $('#carousel-example-generic').height();
+
+        $(window).on('scroll',function(){
+            stop = Math.round($(window).scrollTop());
+            if (stop >= mainbottom) {
+                $('.navbar-default').addClass('past-main');
+            } else {
+                $('.navbar-default').removeClass('past-main');
+           }
+        });
+    </script>
+    <script type="text/javascript">
+        function showAlert(){
+            var hiddendiv = document.getElementById("onsubmit");
+            hiddendiv.classList.remove('hiddenn');
+            hiddendiv.classList.add('shown');
+        }
+    </script>
+    <script type="text/javascript">
+        function showAlert1(){
+            alert('Thank You for contacting');
+        }
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            setInterval(function(){
+                $('.custom1').toggleClass('alter1 new1');
+            },7000);
+        })();
+    </script>
+{% endblock %}
+</body>
+</html>

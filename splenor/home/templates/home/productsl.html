@@ -1,0 +1,169 @@
+{% block body %}
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Splenor | Products{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=El Messiri"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"/>
+    <link rel='stylesheet' type='text/css' href="https://fonts.googleapis.com/css?family=Satisfy">
+    <link rel='stylesheet' type='text/css' href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{%  static 'home/images/logo-final.png' %}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+    <style>
+        a:hover{
+            text-decoration: none;
+        }
+        .textsection{
+            text-align: center;
+            padding-top: 11%;
+            font-family: Roboto;
+            font-weight: bold;
+            font-size: 27px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background: linear-gradient(#565656, #8a8a8a);">
+            <div class="container">
+                <div class="navbar-header">
+                    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                     </button>-->
+                    <a class="navbar-brand" href="{% url 'home:index' %}">
+                        <img src="{% static 'home/images/logosplenor.png' %}" alt="">
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#newNavBar">
+                        <span class="icon-bar" style="background: #ffffff;"></span>
+                        <span class="icon-bar" style="background: #ffffff;"></span>
+                        <span class="icon-bar" style="background: #ffffff;"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="newNavBar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="{% block Home %}{% endblock %}">
+                            <a href="{% url 'home:index' %}" class="scroll">HOME</a>
+                        </li>
+                        <li class="{% block product %}active{% endblock %}"><a href="#beltbuckle" class="scroll">BELT BUCKLE</a></li>
+                        <li><a href="#button" class="scroll">BUTTON</a></li>
+                        <li><a href="#lace" class="scroll">LACE</a></li>
+                        <li><a href="#slider" class="scroll">SLIDER</a></li>
+                        <li><a href="#waistbelt" class="scroll">WAIST BELT</a></li>
+                        <li><a href="#zipper" class="scroll">ZIPPER</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div style="margin-top: 67px;">
+        <section id="beltbuckle">
+            <div class="row" style="height: 475px;">
+                <div class="col-md-3" style="height: inherit; background-color: #edd0bd;"></div>
+                <div class="col-md-3" style="height: inherit;">
+                    <div class="row">
+                        <a href="{% url 'home:beltbuckles_index' %}">
+                            <img class="img-responsive" style="" src="{% static 'home/images/belt475_1.jpg' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 textsection" style="height: inherit; background-color: #eba470;">
+                    <a style="color: #36261a;" href="{% url 'home:beltbuckles_index' %}">BELT BUCKLE</a>
+                </div>
+                <div class="col-md-3" style="height: inherit; background-color: #edd0bd;"></div>
+            </div>
+        </section>
+        <section id="button">
+            <div class="row" style="height: 475px;">
+                <div class="col-md-3" style="height: inherit; background-color: #D4E4E1;"></div>
+                <div class="col-md-3 textsection" style="height: inherit; background-color: #A3C7BD; color: #ffffff;">BUTTONS<br>
+                    <a style="font-size: 20px; color: #fff;" href="{% url 'home:buttonsc_index' %}">BY CATEGORY</a><br>
+                    <a style="font-size: 20px; color: #fff;" href="{% url 'home:buttonsc_index' %}">BY STYLE</a>
+                </div>
+                <div class="col-md-3" style="height: inherit;">
+                    <div class="row">
+                        <a href="">
+                            <img class="img-responsive" src="{% static 'home/images/but475_2.jpg' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3" style="height: inherit; background-color: #D4E4E1;"></div>
+            </div>
+        </section>
+        <section id="lace">
+            <div class="row" style="height: 475px;">
+                <div class="col-md-3" style="height: inherit; background-color: #d1c1e6;"></div>
+                <div class="col-md-3" style="height: inherit;">
+                    <div class="row">
+                        <a href="{% url 'home:laces_index' %}">
+                            <img class="img-responsive" src="{% static 'home/images/lace475_1.jpg' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 textsection" style="height: inherit; background-color: #b69fd4;">
+                    <a style="color: #39304a;" href="{% url 'home:laces_index' %}">LACE</a>
+                </div>
+                <div class="col-md-3" style="height: inherit; background-color: #d1c1e6;"></div>
+            </div>
+        </section>
+        <section id="slider">
+            <div class="row" style="height: 475px;">
+                <div class="col-md-3" style="height: inherit; background-color: #c3d4ae;"></div>
+                <div class="col-md-3 textsection" style="height: inherit; background-color: #a3c37a;">
+                    <a style="color: #ffffff;" href="{% url 'home:sliders_index' %}">SLIDER</a>
+                </div>
+                <div class="col-md-3" style="height: inherit;">
+                    <div class="row">
+                        <a href="{% url 'home:sliders_index' %}">
+                            <img class="img-responsive" src="{% static 'home/images/slider475_2.jpg' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3" style="height: inherit; background-color: #c3d4ae;"></div>
+            </div>
+        </section>
+        <section id="waistbelt">
+            <div class="row" style="height: 475px;">
+                <div class="col-md-3" style="height: inherit; background-color: #d6acc8;"></div>
+                <div class="col-md-3" style="height: inherit;">
+                    <div class="row">
+                        <a href="{% url 'home:waistbelts_index' %}">
+                            <img class="img-responsive" src="{% static 'home/images/waist475_2.jpg' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 textsection" style="height: inherit; background-color: #c37aab;">
+                    <a style="color: #3b1b31;" href="{% url 'home:waistbelts_index' %}">WAIST BELT</a>
+                </div>
+                <div class="col-md-3" style="height: inherit; background-color: #d6acc8;"></div>
+            </div>
+        </section>
+        <section id="zipper">
+            <div class="row" style="height: 475px;">
+                <div class="col-md-3" style="height: inherit; background-color: #bcd3e9;"></div>
+                <div class="col-md-3 textsection" style="height: inherit; background-color: #7aa0c3;">
+                    <a style="color: #ffffff;" href="{% url 'home:zippers_index' %}">ZIPPER</a>
+                </div>
+                <div class="col-md-3" style="height: inherit;">
+                    <div class="row">
+                        <a href="{% url 'home:zippers_index' %}">
+                            <img class="img-responsive" style="height: 475px;" src="{% static 'home/images/zip475_2.jpg' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3" style="height: inherit; background-color: #bcd3e9;"></div>
+            </div>
+        </section>
+        </div>
+        <footer class="footer-default" style="padding-left: 20%; background: #3D4045; height: 50px;">
+            <p style="padding-top: 15px;">Privacy Policy 2017</p>
+        </footer>
+    </div>
+{% endblock %}
+</body>
+</html>

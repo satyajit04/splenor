@@ -1,0 +1,105 @@
+{% extends 'home/index.html' %}
+{% block title %}Splenor | Zippers{% endblock %}
+{% block body %}
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <style>
+        .image {
+          opacity: 1;
+          display: block;
+          width: auto;
+          height: auto;
+          transition: 0.2s ease;
+          backface-visibility: hidden;
+          border: 0px solid #4CAF50;
+        }
+
+        .middle {
+          transition: 0.2s ease;
+          opacity: 0;
+          position: absolute;
+          top: 75%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%)
+        }
+
+        .col-md-4 .image:hover {
+          opacity: 0.5;
+          border: 0px solid #4CAF50;
+        }
+
+        .col-md-4:hover .middle {
+          opacity: 1;
+        }
+
+        .text {
+          background-color: #4CAF50;
+          position: relative;
+          width: 200px;
+          height: 70px;
+          color: white;
+          font-size: 16px;
+
+          text-align: center;
+          padding: 12%;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center" style="color: #4CAF50; font-family: El Messiri; font-size: 30px;">Zippers</h1>
+    <div class="container">
+        <div class="row">
+            <ul>
+                {% for i in zippers %}
+                    {% if i.category == 'Metal' %}
+                    <div class="col-md-4" style="right: 10px;">
+                        <a href="{% url 'home:metalz' %}">
+                            <img class="img-responsive image" style="width: 369px; height: 369px;" src="{% static 'home/images/metal1.jpg' %}">
+                            <div class="middle">
+                                <div class="text">Metal Zipper</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if i.category == 'Nylon' %}
+                    <div class="col-md-4" style="">
+                        <a href="{% url 'home:nylonz' %}">
+                            <img class="img-responsive image" style="width: 369px; height: 369px;" src="{% static 'home/images/nylonz.jpg' %}">
+                            <div class="middle">
+                                <div class="text">Nylon Zipper</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if i.category == 'Plastic' %}
+                    <div class="col-md-4" style="left: 10px;">
+                        <a href="{% url 'home:plasticz' %}">
+                            <img class="img-responsive image" style="width: 369px; height: 369px;" src="{% static 'home/images/plasticz.jpg' %}">
+                            <div class="middle">
+                                <div class="text">Plastic Zipper</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if i.category == 'Rhinestone' %}
+                    <div class="col-md-4" style="right: 10px; top: 25px;">
+                        <a href="{% url 'home:rhinestonez' %}">
+                            <img class="img-responsive image" style="width: 369px; height: 369px;" src="{% static 'home/images/rhinestone.jpg' %}">
+                            <div class="middle">
+                                <div class="text">Rhinestone Zipper</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+</body>
+{% endblock %}

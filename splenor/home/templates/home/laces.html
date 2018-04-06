@@ -1,0 +1,217 @@
+{% block body %}
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Splenor | Laces</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=El Messiri"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"/>
+    <link rel='stylesheet' type='text/css' href="https://fonts.googleapis.com/css?family=Satisfy">
+    <link rel='stylesheet' type='text/css' href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{%  static 'home/images/logo-final.png' %}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+    <style>
+        .customdiv{
+        }
+        .zoom img{
+            border: 0px solid #7f7f82;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+        .zoom:hover img{
+            border: 0px;
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        @media(max-width: 767px){
+        .navbar-header{
+            height: 67px;
+        }
+        .navbar-brand{
+            margin-left: 36%;
+        }
+        .navbar-collapse{
+            background-color: #3d4045;
+        }
+        .navbar-collapse .navbar-nav >li {
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .navbar-collapse .navbar-nav > li > a{
+            height: 50px;
+            padding-top: 16px;
+            color: #e9e9ed;
+        }
+        .navbar-collapse .navbar-nav > li > a:hover,
+        .navbar-collapse .navbar-nav > li > a:focus {
+            color: #3d4045;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .navbar-collapse .navbar-nav > .active > a{
+            height: 50px;
+            padding-top: 16px;
+            color: #3d4045;
+            background-color: #f5f5f5;
+        }
+        .navbar-collapse .navbar-nav > .active > a:hover,
+        .navbar-collapse .navbar-nav > .active > a:focus {
+            color: #3d4045;                                 /*    #a9a9ad;    */
+            border-bottom: 0px solid #f5f5f5;
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>           <!--#c7cbcb#fafafa-->
+    <nav class="navbar navbar-default navbar-fixed-top" style="background: linear-gradient(#3d4045, #8a8a8a);">
+        <div class="container">
+            <div class="navbar-header">
+                <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <i class="fa fa-bars"></i>
+                 </button>-->
+                <a class="navbar-brand" href="{% url 'home:index' %}">
+                    <img src="{% static 'home/images/logosplenor.png' %}" alt="">
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#newNavBar">
+                    <span class="icon-bar" style="background: #ffffff;"></span>
+                    <span class="icon-bar" style="background: #ffffff;"></span>
+                    <span class="icon-bar" style="background: #ffffff;"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="newNavBar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="{% block Home %}{% endblock %}">
+                        <a href="{% url 'home:index' %}" class="scroll">HOME</a>
+                    </li>
+                    <li class="{% block product %}{% endblock %}"><a href="{% url 'home:products_index' %}" class="scroll">PRODUCTS</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" style="background-color: #c7cbcb; margin-top: 67px;">
+        {% for i in laces %}
+            {% if i.category == 'Chest' %}
+                <!--<div class="customdiv" style="background-color: #c7cbcb;">-->
+                <div class="row">
+                    <div class="col-md-4 zoom">
+                        <br><img src="{{ i.image.url }}" class="img-responsive center-block" width="300" height="300"><br>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 50px;">
+                        <h2>{{ i.category }} Laces</h2>
+                        <h4>{{ i.desc }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            {% if i.category == 'Cotton' %}
+                <!--<div class="customdiv" style="background-color: #c7cbcb;">-->
+                <div class="row" style="background-color: #8e9596;">
+                    <div class="col-md-4 zoom">
+                        <br><img src="{{ i.image.url }}" class="img-responsive center-block" width="300" height="300"><br>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 50px;">
+                        <h2>{{ i.category }} Laces</h2>
+                        <h4>{{ i.desc }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            {% if i.category == 'Cotton Fabric' %}
+                <!--<div class="customdiv" style="background-color: #c7cbcb;">-->
+                <div class="row">
+                    <div class="col-md-4 zoom">
+                        <br><img src="{{ i.image.url }}" class="img-responsive center-block" width="300" height="300"><br>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 50px;">
+                        <h2>{{ i.category }} Laces</h2>
+                        <h4>{{ i.desc }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            {% if i.category == 'Elastic' %}
+                <!--<div class="customdiv" style="background-color: #8e9596;">-->
+                <div class="row" style="background-color: #8e9596;">
+                    <div class="col-md-4 zoom">
+                        <br><img src="{{ i.image.url }}" class="img-responsive center-block" width="300" height="300"><br>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 50px;">
+                        <h2>{{ i.category }} Laces</h2>
+                        <h4>{{ i.desc }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            {% if i.category == 'Nylon' %}
+                <!--<div class="customdiv" style="background-color: #c7cbcb;">-->
+                <div class="row">
+                    <div class="col-md-4 zoom">
+                        <br><img src="{{ i.image.url }}" class="img-responsive center-block" width="300" height="300"><br>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 50px;">
+                        <h2>{{ i.category }} Laces</h2>
+                        <h4>{{ i.desc }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            {% if i.category == 'Polyester' %}
+                <!--<div class="customdiv" style="background-color: #8e9596;">-->
+                <div class="row" style="background-color: #8e9596;">
+                    <div class="col-md-4 zoom">
+                        <br><img src="{{ i.image.url }}" class="img-responsive center-block" width="300" height="300"><br>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 50px;">
+                        <h2>{{ i.category }} Laces</h2>
+                        <h4>{{ i.desc }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            {% if i.category == 'Shoulder' %}
+                <!--<div class="customdiv" style="background-color: #c7cbcb;">-->
+                <div class="row">
+                    <div class="col-md-4 zoom">
+                        <br><img src="{{ i.image.url }}" class="img-responsive center-block" width="300" height="300"><br>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 50px;">
+                        <h2>{{ i.category }} Laces</h2>
+                        <h4>{{ i.desc }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            {% if i.category == 'Woven Embroidery' %}
+                <!--<div class="customdiv" style="background-color: #c7cbcb;">-->
+                <div class="row" style="background-color: #8e9596;">
+                    <div class="col-md-4 zoom">
+                        <br><img src="{{ i.image.url }}" class="img-responsive center-block" width="300" height="300"><br>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 50px;">
+                        <h2>{{ i.category }} Laces</h2>
+                        <h4>{{ i.desc }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+            {% if i.category == 'Woven Embroidery Fabric' %}
+                <!--<div class="customdiv" style="background-color: #c7cbcb;">-->
+                <div class="row">
+                    <div class="col-md-4 zoom">
+                        <br><img src="{{ i.image.url }}" class="img-responsive center-block" width="300" height="300"><br>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 50px;">
+                        <h2>{{ i.category }} Laces</h2>
+                        <h4>{{ i.desc }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div style="margin-left: -20px; margin-right: -15px;">
+            <footer class="footer-default" style="padding-left: 40%; border-top: 1px solid #f5f5f5; background: #3D4045; height: 50px;">
+                <p style="padding-top: 15px; color: #f5f5f5;">Copyright &copy; 2017 | Privacy Policy</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

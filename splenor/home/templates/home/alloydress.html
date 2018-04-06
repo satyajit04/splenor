@@ -1,0 +1,79 @@
+{% extends 'home/index.html' %}
+{% block title %}Splenor | Alloy Dress Belt Buckles{% endblock %}
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .customdiv{
+            background: #d1ebe9;
+            border: 1px solid #2d948b;
+            box-sizing: border-box;
+        }
+        .border-right {
+            border-right: 2px solid #2d948b;
+        }
+        .row.vdivide [class*='col-']:not(:last-child):after {
+             background: #2d948b;
+             width: 2px;
+             content: "";
+             display: block;
+             position: absolute;
+             top: 23px;
+             bottom: 23px;
+             right: 0;
+             min-height: 70px;
+             max-height: 600px;
+        }
+        .alert-custom{
+            background: #d1ebe9;
+        }
+        .zoom img{
+            border:10px solid #2d948b;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+        .zoom:hover img{
+            border: 0px;
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col=md-12">
+                <br>
+                <!--<div class="alert alert-custom">-->
+                    <h1 style="padding-left: 40px; color: #498099; font-family: El Messiri; font-size: 30px;">Alloy Dress Belt Buckles</h1>
+                <!--</div>-->
+                <ul>
+                    {% for i in alloydress_buckles %}
+                    <div class="row">
+                        <div class=" col-md-12" style="padding-right: 50px;">
+                            <div class="customdiv">
+                                <div class="row vdivide">
+                                    <div class="col-md-4 zoom">
+                                        <br><img src="{{ i.img.url }}" class="img-responsive center-block" width="400" height="400" style="border:10px solid #2d948b"><br>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h3 style="font-family: El Messiri; font-size: 22px; color: #498099; text-align: center;">{{ i.category }} Belt Buckle</h3><br>
+                                        <p align="justify" style="padding-left: 80px; padding-right: 80px;">{{ i.desc }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

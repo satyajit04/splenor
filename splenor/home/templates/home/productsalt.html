@@ -1,0 +1,229 @@
+{% block body %}
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Splenor | Products{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=El Messiri"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine"/>
+    <link rel='stylesheet' type='text/css' href="https://fonts.googleapis.com/css?family=Satisfy">
+    <link rel='stylesheet' type='text/css' href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{%  static 'home/images/logo-final.png' %}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+    <style>
+        a:hover{
+            text-decoration: none;
+        }
+        .row{
+            height: 475px;
+        }
+        .textsection{
+            text-align: center;
+            padding-top: 11%;
+            font-family: Roboto;
+            font-weight: bold;
+            font-size: 27px;
+        }
+        .col-md-3{
+            height: 475px;
+        }
+        col-xs-3{
+            height: 250px;
+        }
+        @media(max-width: 767px){
+        .row{
+            height: 190px;
+        }
+        .navbar-header{
+            height: 67px;
+        }
+        .navbar-brand{
+            margin-left: 36%;
+        }
+        .navbar-collapse{
+            background-color: #3d4045;
+        }
+        .navbar-collapse .navbar-nav >li {
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .navbar-collapse .navbar-nav > li > a{
+            height: 50px;
+            padding-top: 16px;
+            color: #e9e9ed;
+        }
+        .navbar-collapse .navbar-nav > li > a:hover,
+        .navbar-collapse .navbar-nav > li > a:focus {
+            color: #3d4045;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .navbar-collapse .navbar-nav > .active > a{
+            height: 50px;
+            padding-top: 16px;
+            color: #3d4045;
+            background-color: #f5f5f5;
+        }
+        .navbar-collapse .navbar-nav > .active > a:hover,
+        .navbar-collapse .navbar-nav > .active > a:focus {
+            color: #3d4045;                                 /*    #a9a9ad;    */
+            border-bottom: 0px solid #f5f5f5;
+            background-color: #f5f5f5;
+        }
+        .textsection{
+            text-align: center;
+            padding-top: 11%;
+            font-family: Roboto;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background: linear-gradient(#3d4045, #8a8a8a);">
+            <div class="container">
+                <div class="navbar-header">
+                    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                     </button>-->
+                    <a class="navbar-brand" href="{% url 'home:index' %}">
+                        <img src="{% static 'home/images/logosplenor.png' %}" alt="">
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#newNavBar">
+                        <span class="icon-bar" style="background: #ffffff;"></span>
+                        <span class="icon-bar" style="background: #ffffff;"></span>
+                        <span class="icon-bar" style="background: #ffffff;"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="newNavBar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="{% block Home %}{% endblock %}">
+                            <a href="{% url 'home:index' %}" class="scroll">HOME</a>
+                        </li>
+                        <li class="{% block product %}{% endblock %}"><a href="#beltbuckle" class="scroll">BELT BUCKLE</a></li>
+                        <li><a href="#button" class="scroll">BUTTON</a></li>
+                        <li><a href="#lace" class="scroll">LACE</a></li>
+                        <li><a href="#slider" class="scroll">SLIDER</a></li>
+                        <li><a href="#waistbelt" class="scroll">WAIST BELT</a></li>
+                        <li><a href="#zipper" class="scroll">ZIPPER</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div style="margin-top: 67px;">
+        <section id="beltbuckle">
+            <div class="row" style="">
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #C7C8CB;"></div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #8e9596;">
+                    <div class="row">
+                        <a href="{% url 'home:beltbuckles_index' %}">
+                            <img class="img-responsive" style="" src="{% static 'home/images/belttt.png' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 textsection" style="height: inherit; background-color: #8e9596;">
+                    <a style="color: #fff;" href="{% url 'home:beltbuckles_index' %}">BELT BUCKLE</a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #C7C8CB;"></div>
+            </div>
+        </section>
+        <section id="button">
+            <div class="row" style="">
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #8e9596;"></div>
+                <div class="col-md-3 col-xs-3 textsection" style="height: inherit; background-color: #c7cbcb; color: #000000;">
+                    <a style="color: #000000;" href="{% url 'home:buttonsc_index' %}">BUTTON</a>
+                    <!--<a style="font-size: 16px; color: #000000;" href="{% url 'home:buttonss_index' %}">STYLES</a>-->
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #C7C8CB;">
+                    <div class="row">
+                        <a href="{% url 'home:buttonsc_index' %}">
+                            <img class="img-responsive" src="{% static 'home/images/buttonn.png' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #8e9596;"></div>
+            </div>
+        </section>
+        <section id="lace">
+            <div class="row" style="">
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #C7C8CB;"></div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #8e9596;">
+                    <div class="row">
+                        <a href="{% url 'home:laces_index' %}">
+                            <img class="img-responsive" src="{% static 'home/images/lacee.png' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 textsection" style="height: inherit; background-color: #8e9596;">
+                    <a style="color: #fff;" href="{% url 'home:laces_index' %}">LACE</a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #C7C8CB;"></div>
+            </div>
+        </section>
+        <section id="slider">
+            <div class="row" style="">
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #8e9596;"></div>
+                <div class="col-md-3 col-sm-3 col-xs-3 textsection" style="height: inherit; background-color: #C7C8CB;">
+                    <a style="color: #000000;" href="{% url 'home:sliders_index' %}">SLIDER</a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #C7C8CB;">
+                    <div class="row">
+                        <a href="{% url 'home:sliders_index' %}">
+                            <img class="img-responsive" src="{% static 'home/images/zipper.png' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #8e9596;"></div>
+            </div>
+        </section>
+        <section id="waistbelt">
+            <div class="row" style="">
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #C7C8CB;"></div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #8e9596;">
+                    <div class="row">
+                        <a href="{% url 'home:waistbelts_index' %}">
+                            <img class="img-responsive" src="{% static 'home/images/belttt.png' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 textsection" style="height: inherit; background-color: #8e9596;">
+                    <a style="color: #fff;" href="{% url 'home:waistbelts_index' %}">WAIST BELT</a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #C7C8CB;"></div>
+            </div>
+        </section>
+        <section id="zipper">
+            <div class="row" style="">
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #8e9596;"></div>
+                <div class="col-md-3 col-sm-3 col-xs-3 textsection" style="height: inherit; background-color: #C7C8CB;">
+                    <a style="color: #000000;" href="{% url 'home:zippers_index' %}">ZIPPER</a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #C7C8CB;">
+                    <div class="row">
+                        <a href="{% url 'home:zippers_index' %}">
+                            <img class="img-responsive" style="" src="{% static 'home/images/zipperr.png' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="height: inherit; background-color: #8e9596;"></div>
+            </div>
+        </section>
+        </div>
+        <!--section new arrival-->
+        <div style="margin-left: -20px; margin-right: -15px;">
+            <footer class="footer-default" style="padding-left: 40%; border-top: 1px solid #f5f5f5; background: #3D4045; height: 50px;">
+                <p style="padding-top: 15px; color: #f5f5f5;">Copyright &copy; 2017 | Privacy Policy</p>
+            </footer>
+        </div>
+        </div>
+{% endblock %}
+</body>
+</html>
